@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
 
         Toast.makeText(this, "Saved", Toast.LENGTH_LONG).show();
-        Intent j = new Intent(this, home.class);
+        Intent j = new Intent(this, Home.class);
         startActivity(j);
     }
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         if (user.equals(sharedPref.getString("names", "")) && passw.equals(sharedPref.getString("pass", ""))) {
             Toast.makeText(this, "Log-in Succesfull", Toast.LENGTH_LONG).show();
 
-            Intent j = new Intent(this, home.class);
+            Intent j = new Intent(this, Home.class);
             startActivity(j);
         } else
             Toast.makeText(this, "Details does not exist", Toast.LENGTH_LONG).show();
