@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
 
         Toast.makeText(this, "Saved", Toast.LENGTH_LONG).show();
-        Intent j = new Intent(this, Home.class);
+        Intent j = new Intent(this, TrainingActivity.class);
         startActivity(j);
     }
 
