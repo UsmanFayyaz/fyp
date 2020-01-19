@@ -8,55 +8,43 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class SettingsActivity extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+public class SettingsActivity extends AppCompatActivity  implements AdapterView.OnItemClickListener {
     ListView l1;
-    String stitle[]={"FontSzie", "Font Color", "Profile Info", "Change User Name & Password"};
-    String sdescriptor[]={"Font Size Description", "Font Color Description", "Profile Info Description","Chnage password Description"};
-    int images[]= {R.drawable.fontsize, R.drawable.fontsize, R.drawable.fontsize, R.drawable.fontsize};
+
+    String[] settings_activity={"FontSzie", "Font Color", "Profile Info", "Change User Name & Password"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        l1=findViewById(R.id.myList);
+        l1 = findViewById(R.id.listview);
 
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        l1.setAdapter(arrayAdapter);
+        l1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+            }
+        })
+;}
 
-    }
-
-    class MyAdapter extends ArrayAdapter<String>{
-
-        Context conetxt;
-        String stitle[];
-        String sdescriptor[];
-        int stags[];
-    MyAdapter(Context c,String stitle[],String sdescriptor[],int stags[]) {
-        super(c,R.layout.row,R.id.textView, title);
-        this.context=c;
-        this.stitle=title;
-        this.sdescriptor=descriptor;
-        this.tags=tags;
-
-    }
-
-    @NonNull
     @Override
-        public View getview(int position, @Nullable View correctView, NonNull ViewGroup parent){
-        LayoutInflater layoutInflater =(LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-
-        View
-
-
-
-
-    }
-
-
-
+        TextView tv=(TextView)view;
+        Toast.makeText(this,"you click"+tv.getText(),Toast.LENGTH_SHORT).show();
     }
 }
