@@ -13,7 +13,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        String[] fruits = {"Apple", "Mango", "Orange", "Grape"};
+        String[] fruits = {"Font Size", "Theme", "Profile Info", "Change Username/Password"};
 
         ArrayAdapter myArrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_setting_listview, R.id.list, fruits);
         ListView myListView = (ListView) findViewById(R.id.myList);
