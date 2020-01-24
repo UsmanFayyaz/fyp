@@ -1,6 +1,7 @@
 package com.example.fyp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -12,6 +13,9 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        Toolbar toolbar = findViewById(R.id.appbarlayout_tool_bar);
+        toolbar.setTitle("Settings");
 
         String[] fruits = {"Font Size", "Theme", "Profile Info", "Change Username/Password"};
 

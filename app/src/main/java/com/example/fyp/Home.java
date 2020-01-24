@@ -88,7 +88,7 @@ public class Home extends AppCompatActivity
         if (id == R.id.nav_logout) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_trian_again) {
+        } else if (id == R.id.nav_train_again) {
             Intent intent = new Intent(this, TrainingActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_share) {

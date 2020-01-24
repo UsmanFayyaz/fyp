@@ -1,6 +1,7 @@
 package com.example.fyp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
@@ -25,9 +26,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = findViewById(R.id.appbarlayout_tool_bar);
+        toolbar.setTitle("Brain Droid");
+
         ft = getSupportFragmentManager().beginTransaction();
         logFrag = (logIn) getSupportFragmentManager().findFragmentById(R.id.logInFragment);
-        signFrag = (signUp) getSupportFragmentManager().findFragmentById(R.id.signUpFragment);
+        signFrag = (signUp) getSupportFragmentManager().findFragmentById(R.id.signUpFragmentButton);
 
         sharedPref = getSharedPreferences("Accounts", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        View view = findViewById(R.id.signUpFragment);
+        View view = findViewById(R.id.signUpFragmentButton);
         userName = (EditText) view.findViewById(R.id.nameInput);
         pass = (EditText) view.findViewById(R.id.passwordInput);
     }
@@ -67,13 +71,27 @@ public class MainActivity extends AppCompatActivity {
         String passw = pass.getText().toString();
 
         if (user.equals(sharedPref.getString("names", "")) && passw.equals(sharedPref.getString("pass", ""))) {
-            Toast.makeText(this, "Log-in Succesfull", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Log-in Successful", Toast.LENGTH_LONG).show();
 
             Intent j = new Intent(this, Home.class);
             startActivity(j);
         } else
             Toast.makeText(this, "Details does not exist", Toast.LENGTH_LONG).show();
 
+    }
+
+    public void openSignUpFragment(View view){
+        ft = getSupportFragmentManager().beginTransaction();
+        ft.hide(logFrag);
+        ft.show(signFrag);
+        ft.commit();
+    }
+
+    public void openLogInFragment(View view){
+        ft = getSupportFragmentManager().beginTransaction();
+        ft.hide(signFrag);
+        ft.show(logFrag);
+        ft.commit();
     }
 }
 
