@@ -1,7 +1,6 @@
 package com.example.fyp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -14,12 +13,9 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Toolbar toolbar = findViewById(R.id.appbarlayout_tool_bar);
-        toolbar.setTitle("Settings");
+        String[] fruits = {"Apple", "Mango", "Orange", "Grape"};
 
-        String[] fruits = {"Font Size", "Theme", "Profile Info", "Change Username/Password"};
-
-        ArrayAdapter myArrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_setting_listview, R.id.list, fruits);
+        ArrayAdapter<String> myArrayAdapter = new ArrayAdapter<String>(this,R.layout.activity_setting_listview,R.id.list,fruits);
         ListView myListView = (ListView) findViewById(R.id.myList);
         myListView.setAdapter(myArrayAdapter);
     }
