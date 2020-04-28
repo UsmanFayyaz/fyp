@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         ft = getSupportFragmentManager().beginTransaction();
         logFrag = (logIn) getSupportFragmentManager().findFragmentById(R.id.logInFragment);
-        signFrag = (signUp) getSupportFragmentManager().findFragmentById(R.id.signUpFragmentButton);
+        signFrag = (signUp) getSupportFragmentManager().findFragmentById(R.id.signUpFragment);
 
         sharedPref = getSharedPreferences("Accounts", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
@@ -43,9 +43,7 @@ public class MainActivity extends AppCompatActivity {
             ft.hide(logFrag);
             ft.commit();
         }
-
-
-        View view = findViewById(R.id.signUpFragmentButton);
+        View view = findViewById(R.id.signUpFragment);
         userName = (EditText) view.findViewById(R.id.nameInput);
         pass = (EditText) view.findViewById(R.id.passwordInput);
     }

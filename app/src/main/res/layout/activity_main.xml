@@ -29,7 +29,7 @@
         tools:layout="@layout/log_in" />
 
     <fragment
-        android:id="@+id/signUpFragmentButton"
+        android:id="@+id/signUpFragment"
         android:name="com.example.fyp.signUp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
