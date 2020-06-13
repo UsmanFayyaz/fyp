@@ -50,6 +50,38 @@ public class ChatHeadService extends Service {
         assert mWindowManager != null;
         mWindowManager.addView(mChatHeadView, params);
 
+        ImageView upArrow = (ImageView) mChatHeadView.findViewById(R.id.up_arrow);
+        upArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("usm","up");
+            }
+        });
+
+        ImageView downArrow = (ImageView) mChatHeadView.findViewById(R.id.down_arrow);
+        downArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("usm","down");
+            }
+        });
+
+        ImageView rightArrow = (ImageView) mChatHeadView.findViewById(R.id.right_arrow);
+        rightArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("usm","right");
+            }
+        });
+
+        ImageView leftArrow = (ImageView) mChatHeadView.findViewById(R.id.left_arrow);
+        leftArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("usm","left");
+            }
+        });
+
         //Drag and move chat head using user's touch action.
         final ImageView chatHeadImage = (ImageView) mChatHeadView.findViewById(R.id.touch_button);
         chatHeadImage.setOnTouchListener(new View.OnTouchListener() {
@@ -80,12 +112,7 @@ public class ChatHeadService extends Service {
                         //to identify if the user clicked the view or not.
                         if (lastAction == MotionEvent.ACTION_DOWN) {
                             //Open the chat conversation click.
-                            Intent intent = new Intent(ChatHeadService.this, ChatHeadService.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
-
-                            //close the service and remove the chat heads
-                            stopSelf();
+                            Log.d("usm","touch");
                         }
                         lastAction = event.getAction();
                         return true;
